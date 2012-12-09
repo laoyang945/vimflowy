@@ -134,8 +134,8 @@ if &background == "light"
 	hi BadWord gui=underline guifg=darkred cterm=underline ctermfg=darkred
 " Dark background {{{2
 else 
-	hi OL1 guifg=white	ctermfg=white
-	hi OL2 guifg=red	ctermfg=red
+	hi OL1 guifg=yellow	ctermfg=yellow
+	hi OL2 guifg=darkgrey	ctermfg=darkgrey
 	hi OL3 guifg=lightblue	ctermfg=lightblue
 	hi OL4 guifg=darkviolet	ctermfg=magenta
 	hi OL5 guifg=white	ctermfg=white

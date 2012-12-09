@@ -593,17 +593,17 @@ endif
 " Steve's additional mappings start here
 map <silent><buffer>   <C-K>         <C-]>
 map <silent><buffer>   <C-N>         <C-T>
-map <silent><buffer>   <localleader>0           :set foldlevel=99999<CR>
-map <silent><buffer>   <localleader>9           :set foldlevel=8<CR>
-map <silent><buffer>   <localleader>8           :set foldlevel=7<CR>
-map <silent><buffer>   <localleader>7           :set foldlevel=6<CR>
-map <silent><buffer>   <localleader>6           :set foldlevel=5<CR>
-map <silent><buffer>   <localleader>5           :set foldlevel=4<CR>
-map <silent><buffer>   <localleader>4           :set foldlevel=3<CR>
-map <silent><buffer>   <localleader>3           :set foldlevel=2<CR>
-map <silent><buffer>   <localleader>2           :set foldlevel=1<CR>
-map <silent><buffer>   <localleader>1           :set foldlevel=0<CR>
-map <silent><buffer>   <localleader>,,          :runtime vimoutliner/vimoutlinerrc<CR>
+map <silent><buffer>   <localleader>0          :set foldexpr=MyFoldLevel(v:lnum)<CR>:set foldlevel=99999<CR>
+map <silent><buffer>   <localleader>9          :set foldexpr=MyFoldLevel(v:lnum)<CR> :set foldlevel=8<CR>
+map <silent><buffer>   <localleader>8          :set foldexpr=MyFoldLevel(v:lnum)<CR> :set foldlevel=7<CR>
+map <silent><buffer>   <localleader>7          :set foldexpr=MyFoldLevel(v:lnum)<CR> :set foldlevel=6<CR>
+map <silent><buffer>   <localleader>6          :set foldexpr=MyFoldLevel(v:lnum)<CR> :set foldlevel=5<CR>
+map <silent><buffer>   <localleader>5          :set foldexpr=MyFoldLevel(v:lnum)<CR> :set foldlevel=4<CR>
+map <silent><buffer>   <localleader>4          :set foldexpr=MyFoldLevel(v:lnum)<CR> :set foldlevel=3<CR>
+map <silent><buffer>   <localleader>3          :set foldexpr=MyFoldLevel(v:lnum)<CR> :set foldlevel=2<CR>
+map <silent><buffer>   <localleader>2          :set foldexpr=MyFoldLevel(v:lnum)<CR> :set foldlevel=1<CR>
+map <silent><buffer>   <localleader>1          :set foldexpr=MyFoldLevel(v:lnum)<CR> :set foldlevel=0<CR>
+map <silent><buffer>   <localleader>,,          :runtime vimoutliner/vimoutlinerrc<>CR>
 map! <silent><buffer>  <localleader>w           <Esc>:w<CR>a
 nmap <silent><buffer>  <localleader>e           :call Spawn()<cr>
 " Steve's additional mappings end here
