@@ -10,7 +10,7 @@
 let g:vo_modules_load = "checkbox"
 
 " Uncomment the following line to enable hoisting.
-"let g:vo_modules_load .= ':hoist'
+:let g:vo_modules_load .= ':hoist'
 
 " Uncomment the following line to enable smart_paste.
 "let g:vo_modules_load .= ':smart_paste'
@@ -25,17 +25,17 @@ let g:vo_modules_load = "checkbox"
 "setlocal tabstop=4			" tabstop and shiftwidth must match
 "setlocal shiftwidth=4			" values from 2 to 8 work well
 "setlocal background=dark		" for dark backgrounds
-setlocal nowrap
+"setlocal nowrap
 
 "Hoisting ***********************************************************
 "Uncomment and set to 1 to debug hoisting
-"let g:hoistParanoia=0
+"let g:hoistParanoia=1
 
 "Custom Colors ******************************************************
 " Uncomment this next line to force using VO on a light background
 " colorscheme vo_light 
 " Uncomment this next line to force using VO on a dark background
-" colorscheme vo_dark 
+colorscheme vo_dark 
 " Or create your own color scheme. You can find sample files in Vim's 
 " colors directory. There may even be a colors directory in your own
 " $HOME/.vim directory.

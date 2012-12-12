@@ -85,8 +85,8 @@ setlocal nosmarttab
 setlocal softtabstop=0 
 setlocal foldlevel=20
 setlocal foldcolumn=1		" turns on "+" at the beginning of close folds
-setlocal tabstop=4			" tabstop and shiftwidth must match
-setlocal shiftwidth=4		" values from 2 to 8 work well
+setlocal tabstop=2			" tabstop and shiftwidth must match
+setlocal shiftwidth=2		" values from 2 to 8 work well
 setlocal foldmethod=expr
 setlocal foldexpr=MyFoldLevel(v:lnum)
 setlocal indentexpr=
@@ -542,6 +542,14 @@ function Spawn()
 endfunction
 endif
 "}}}2
+" Show the cursor word {{{2
+function ShowWord()
+	let cur_word=expand("<cWORD>")
+	let myfoldexpr="set foldexpr=getline(v:lnum)!~\'\^.*".cur_word.".*\$\'"
+	set foldlevel=0
+	exec myfoldexpr
+endfunction
+" }}}2
 " This should be a setlocal but that doesn't work when switching to a new .otl file
 " within the same buffer. Using :e has demonstrated this.
 set foldtext=MyFoldText()
@@ -606,6 +614,9 @@ map <silent><buffer>   <localleader>1          :set foldexpr=MyFoldLevel(v:lnum)
 map <silent><buffer>   <localleader>,,          :runtime vimoutliner/vimoutlinerrc<>CR>
 map! <silent><buffer>  <localleader>w           <Esc>:w<CR>a
 nmap <silent><buffer>  <localleader>e           :call Spawn()<cr>
+nmap <silent><buffer> zs :call ShowWord()<CR>
+nmap <silent><buffer> zn :set foldexpr=MyFoldLevel(v:lnum)<CR> :set foldlevel=999<CR>
+
 " Steve's additional mappings end here
 
 " Placeholders for already assigned but non-functional commands
@@ -647,7 +658,7 @@ amenu &VO.-Sep3- :
 amenu &VO.&Help.&Index :he vo<cr>
 amenu &VO.&Help.&,,\ Commands :he vo-command<cr>
 amenu &VO.&Help.&Checkboxes :he vo-checkbox<cr>
-amenu &VO.&Help.&Hoisting :he vo-hoisting<cr>
+amenu &VO.&HelpssHoisting :he vo-hoisting<cr>
 amenu &Help.-Sep1- :
 " Help menu additions
 amenu &Help.&Vim\ Outliner.&Index :he vo<cr>

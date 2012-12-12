@@ -4,7 +4,7 @@ hi StatusLine guifg=white guibg=black	ctermfg=white ctermbg=black
 hi StatusLineNC guifg=white guibg=black	ctermfg=white ctermbg=black
 hi VertSplit guifg=white guibg=black	ctermfg=white ctermbg=black
 hi OL1 guifg=white	ctermfg=white
-hi OL2 guifg=red	ctermfg=red
+hi OL2 guifg=darkgrey	ctermfg=darkgrey
 hi OL3 guifg=lightblue	ctermfg=lightblue
 hi OL4 guifg=violet	ctermfg=magenta
 hi OL5 guifg=white	ctermfg=white
