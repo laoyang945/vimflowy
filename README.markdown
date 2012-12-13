@@ -2,7 +2,7 @@
 vimflowy is a vim plugin which implements a simple and elegant outliner tool like [workflowy](http://www.workflowy.com). It is based on [vimoutliner](http://www.github.com/vimoutliner/vimoutliner) and the document is still vimoutliner's.
 
 ## Features
-- simple and elegent
+- simple and elegant
 - based on plain text file, you can open it everywhere and on every platform, with or without internet access.
 - easy to navigate among items
 - # and @ are highlighted just as in twitter and workflowy. They can be used as "context" in GTD
