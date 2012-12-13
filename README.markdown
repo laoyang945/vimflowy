@@ -15,6 +15,7 @@ Ouliner,highlights, folding and done mark
 <img src="http://ww2.sinaimg.cn/large/640a227egw1dzs3596gm3g.gif" width="500" />
 
 Keyword Filtering
+
 <img src="http://ww3.sinaimg.cn/large/640a227egw1dzs36i6vh3g.gif" width="500" />
 
 ## Installation  
