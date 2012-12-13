@@ -32,4 +32,4 @@ Using [pathogen](http://www.github.com/tpope/vim-pathogen) is strongly encourage
 - ,,d: insert date
 
 ## Configration
-- color scheme: Please modify colors/vo\_dar.vim
+- color scheme: Please modify colors/vo\_dark.vim
