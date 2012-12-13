@@ -12,7 +12,7 @@ vimflowy is a vim plugin which implements a simple and elegant outliner tool lik
 ## Installation  
 Using [pathogen](http://www.github.com/tpope/vim-pathogen) is strongly encouraged. 
 
-	git submodule git://github.com/laoyang945/vimflowy.git .vim/bundle/vimflowy
+	git submodule add git://github.com/laoyang945/vimflowy.git .vim/bundle/vimflowy
 
 ## Usage
 - Open a .otl file and the plugin will be automatically loaded
