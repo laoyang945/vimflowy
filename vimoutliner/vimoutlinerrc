@@ -1,3 +1,4 @@
+" vim: set ft=vim:
 "Extra mappings *****************************************************
 "This mapping is fold-level and fold-state dependent 
 "map <S-Down> dd p
@@ -7,7 +8,7 @@
 " This variable holds name of all VO modules you want to load. Do NOT use ru
 " directly in this file, because you will get into many strange surprises. If
 " you do not want to load any VO modules leave it blank (default).
-let g:vo_modules_load = "checkbox"
+" let g:vo_modules_load = "checkbox"
 
 " Uncomment the following line to enable hoisting.
 "let g:vo_modules_load .= ':hoist'
@@ -35,7 +36,7 @@ let g:vo_modules_load = "checkbox"
 " Uncomment this next line to force using VO on a light background
 " colorscheme vo_light 
 " Uncomment this next line to force using VO on a dark background
-colorscheme vo_dark 
+" colorscheme vo_dark 
 " Or create your own color scheme. You can find sample files in Vim's 
 " colors directory. There may even be a colors directory in your own
 " $HOME/.vim directory.

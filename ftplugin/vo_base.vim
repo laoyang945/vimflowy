@@ -67,7 +67,7 @@ let b:current_syntax = "outliner"
 
 let maplocalleader = ",,"		" this is prepended to VO key mappings
 
-setlocal ignorecase			" searches ignore case
+"setlocal ignorecase			" searches ignore case
 setlocal smartcase			" searches use smart case
 
 let use_space_colon=0
@@ -78,7 +78,7 @@ let use_space_colon=0
 setlocal autoindent	
 setlocal backspace=2
 setlocal wrapmargin=5
-setlocal wrap!
+"setlocal wrap!
 setlocal tw=78
 setlocal noexpandtab
 setlocal nosmarttab
@@ -92,6 +92,8 @@ setlocal foldexpr=MyFoldLevel(v:lnum)
 setlocal indentexpr=
 setlocal nocindent
 setlocal iskeyword=@,39,45,48-57,_,129-255
+setlocal noignorecase
+colorscheme vo_dark
 
 " Vim Outliner Functions {{{1
 
@@ -108,16 +110,16 @@ endfunction
 " FindParent(line) {{{3
 " Return line if parent, parent line if not
 function! FindParent(line)
-	if IsParent(a:line)
-		return a:line
-	else
+	"if IsParent(a:line)
+	"	return a:line
+	"else
 		let l:parentindent = Ind(a:line)-1
 		let l:searchline = a:line
 		while (Ind(l:searchline) != l:parentindent) && (l:searchline > 0)
 			let l:searchline = l:searchline-1
 		endwhile
 		return l:searchline
-	endif
+	"endif
 endfunction
 "}}}3
 " FindLastChild(line) {{{3
@@ -131,6 +133,16 @@ function! FindLastChild(line)
 	return l:searchline-1
 endfunction
 "}}}3
+" FindLastSibling(line) {{{3
+" Return the line number of the last sibling of current line
+function! FindLastSibling(line)
+		let endLine=FindLastChild(FindParent(line(".")))
+		while Ind(endLine)>Ind(a:line)
+				let endLine=endLine-1
+		endwhile
+		return endLine
+endfunction
+" }}}3
 " MoveDown() {{{3
 " Move a heading down by one
 " Used for sorts and reordering of headings
@@ -138,6 +150,15 @@ function! MoveDown()
 	call cursor(line("."),0)
 	del x
 	put x
+endfunction
+"}}}3
+" MoveTo(line) {{{3
+" Move a heading to specific line
+function! MoveTo(line)
+		call cursor(line("."),0)
+		del x
+		call cursor(a:line-1,0)
+		put x
 endfunction
 "}}}3
 " DelHead() {{{3
@@ -263,7 +284,49 @@ function! SortChildren(dir)
 	call cursor(l:oldcursor,0)
 endfunction
 "}}}3
-"}}}2
+" CreateDone(){{{3
+function! CreateDone(line)
+		setlocal noignorecase
+		let endLine=FindLastSibling(a:line)
+		let endNode=FindLastChild(FindParent(a:line))
+		let @x="\t"
+		let @y="DONE"
+		if getline(endLine)!~"^\t*DONE$"
+				let yyy=Ind(endLine)."\"xP"
+				call cursor(endNode,1)
+				put y
+				exec "normal" yyy
+		endif
+endfunction
+" }}}3
+" PutNodesDone(line) {{{3
+function! PutNodesDone(line)
+		call CreateDone(a:line)
+		let donePos=FindLastSibling(a:line)
+		let endLine=FindLastChild(a:line)
+		let l:range=endLine-a:line+1
+		let idx=0
+		while(idx<l:range)
+			call cursor(a:line+l:range-idx-1,1)
+			del x
+			call cursor(donePos-idx-1,1)
+			put x
+			let @y="\t"
+			if (idx==l:range-1)
+					let @y="\t[X] "
+			endif
+			let yyy="\"yP"
+			exec "normal" yyy
+			if (idx==l:range-1)
+					exec "normal" "$"
+					call InsertSpaceDate()
+					call InsertSpaceTime()
+			endif
+			let idx=idx+1
+		endwhile
+endfunction
+" }}}3
+" }}}2
 " MakeChars() {{{2
 " Make a string of characters
 " Used for strings of repeated characters
@@ -543,7 +606,7 @@ endfunction
 endif
 "}}}2
 " Show the cursor word {{{2
-function ShowWord()
+function! ShowWord()
 	let cur_word=expand("<cWORD>")
 	let myfoldexpr="set foldexpr=getline(v:lnum)!~\'\^.*".cur_word.".*\$\'"
 	set foldlevel=0
@@ -616,6 +679,7 @@ map! <silent><buffer>  <localleader>w           <Esc>:w<CR>a
 nmap <silent><buffer>  <localleader>e           :call Spawn()<cr>
 nmap <silent><buffer> zs :call ShowWord()<CR>
 nmap <silent><buffer> zn :set foldexpr=MyFoldLevel(v:lnum)<CR> :set foldlevel=999<CR>
+nmap <silent><buffer> <localleader>dn :call PutNodesDone(line("."))<CR>
 
 " Steve's additional mappings end here
 
