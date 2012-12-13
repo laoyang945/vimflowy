@@ -23,7 +23,6 @@ Using [pathogen](http://www.github.com/tpope/vim-pathogen) is strongly encourage
 
 ## Shortcut Key
 - TAB: demote a heading in insert mode and expand/collapse nodes in normal mode
-- Shift+TAB: promote a heading in insert mode
 - ,,N(N=0~9): collapse to level N node, when N=0, collapse all
 - zs: filter lines containing word under the cursor
 - zn: equal to ,,0
