@@ -1,5 +1,5 @@
 let g:colors_name="VO Dark"
-hi normal guifg=white guibg=grey20	ctermfg=white ctermbg=black
+hi normal guifg=white guibg=black ctermfg=white ctermbg=black
 hi StatusLine guifg=white guibg=black	ctermfg=white ctermbg=black
 hi StatusLineNC guifg=white guibg=black	ctermfg=white ctermbg=black
 hi VertSplit guifg=white guibg=black	ctermfg=white ctermbg=black

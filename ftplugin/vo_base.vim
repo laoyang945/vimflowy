@@ -69,7 +69,6 @@ let maplocalleader = ",,"		" this is prepended to VO key mappings
 
 "setlocal ignorecase			" searches ignore case
 setlocal smartcase			" searches use smart case
-
 let use_space_colon=0
 
 " End User Preferences
@@ -83,7 +82,7 @@ setlocal tw=78
 setlocal noexpandtab
 setlocal nosmarttab
 setlocal softtabstop=0 
-setlocal foldlevel=20
+setlocal foldlevel=0
 setlocal foldcolumn=1		" turns on "+" at the beginning of close folds
 setlocal tabstop=2			" tabstop and shiftwidth must match
 setlocal shiftwidth=2		" values from 2 to 8 work well
@@ -613,6 +612,17 @@ function! ShowWord()
 	exec myfoldexpr
 endfunction
 " }}}2
+" VOExpand(Cycle) {{{2
+" Expand the line heading
+"
+function! Cycle(line)
+		if (foldclosed(a:line)==-1)
+				normal! zc
+		else
+				normal! zo
+		endif
+endfunction
+"}}}2
 " This should be a setlocal but that doesn't work when switching to a new .otl file
 " within the same buffer. Using :e has demonstrated this.
 set foldtext=MyFoldText()
@@ -680,6 +690,7 @@ nmap <silent><buffer>  <localleader>e           :call Spawn()<cr>
 nmap <silent><buffer> zs :call ShowWord()<CR>
 nmap <silent><buffer> zn :set foldexpr=MyFoldLevel(v:lnum)<CR> :set foldlevel=999<CR>
 nmap <silent><buffer> <localleader>dn :call PutNodesDone(line("."))<CR>
+nmap <silent><buffer> <TAB> :call Cycle(line("."))<CR>
 
 " Steve's additional mappings end here
 
