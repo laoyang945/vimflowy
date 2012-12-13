@@ -9,6 +9,14 @@ vimflowy is a vim plugin which implements a simple and elegant outliner tool lik
 - complete tasks will be archived and append a time stamp
 - extensible with other vim plugins (VOoM and universal text linking)
 
+## Screenshots
+Ouliner,highlights, folding and done mark
+
+<img src="http://ww2.sinaimg.cn/large/640a227egw1dzs3596gm3g.gif" width="500" />
+
+Keyword Filtering
+<img src="http://ww3.sinaimg.cn/large/640a227egw1dzs36i6vh3g.gif" width="500" />
+
 ## Installation  
 Using [pathogen](http://www.github.com/tpope/vim-pathogen) is strongly encouraged. 
 
