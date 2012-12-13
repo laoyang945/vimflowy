@@ -21,7 +21,7 @@ Keyword Filtering
 ## Installation  
 Using [pathogen](http://www.github.com/tpope/vim-pathogen) is strongly encouraged. 
 
-	git submodule add git://github.com/laoyang945/vimflowy.git .vim/bundle/vimflowy
+	git clone git://github.com/laoyang945/vimflowy.git .vim/bundle/vimflowy
 
 ## Usage
 - Open a .otl file and the plugin will be automatically loaded
